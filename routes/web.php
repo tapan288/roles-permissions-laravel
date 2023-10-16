@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\User;
+use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\ProfileController;
