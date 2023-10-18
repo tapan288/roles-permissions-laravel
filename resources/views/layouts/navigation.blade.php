@@ -16,11 +16,11 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    @admin
+                    @can('todo_access')
                         <x-nav-link :href="route('todos.index')" :active="request()->routeIs('todos.index')">
                             {{ __('Todos') }}
                         </x-nav-link>
-                    @endadmin
+                    @endcan
                 </div>
             </div>
 
