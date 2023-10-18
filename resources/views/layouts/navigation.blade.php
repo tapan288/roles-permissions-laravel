@@ -15,11 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    @can('todo_access')
+
+                    @admin
                         <x-nav-link :href="route('todos.index')" :active="request()->routeIs('todos.index')">
                             {{ __('Todos') }}
                         </x-nav-link>
-                    @endcan
+                    @endadmin
                 </div>
             </div>
 
