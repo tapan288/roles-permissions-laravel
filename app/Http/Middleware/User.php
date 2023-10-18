@@ -15,7 +15,7 @@ class User
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!$request->user()->is_user) {
+        if (!$request->user()->hasRole('User')) {
             abort(403);
         }
 

@@ -50,11 +50,20 @@ class User extends Authenticatable
 
     public function getIsAdminAttribute()
     {
-        return $this->roles()->where('id', Role::ADMIN_ROLE_ID)->exists();
+        return $this->belongsToMany(Role::class)
+            ->wherePivot('role_id', Role::ADMIN_ROLE_ID)
+            ->exists();
+    }
+
+    public function hasRole($role)
+    {
+        return $this->roles()->where('title', $role)->exists();
     }
 
     public function getIsUserAttribute()
     {
-        return $this->roles()->where('id', Role::USER_ROLE_ID)->exists();
+        return $this->belongsToMany(Role::class)
+            ->wherePivot('role_id', Role::USER_ROLE_ID)
+            ->exists();
     }
 }
